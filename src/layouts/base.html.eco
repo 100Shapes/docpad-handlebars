@@ -6,5 +6,11 @@
 <body>
 <%- @content %>
 <script data-main="js/main" src="js/require.js"></script>
+
+<script type="text/javascript">
+	if (Modernizr.history) {
+		window.console.log("History API supported");
+	}
+</script>
 </body>
 </html>
