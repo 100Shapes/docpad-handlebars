@@ -1,0 +1,5 @@
+---
+layout: base
+---
+
+<%- @render('home.js', {'name': 'Michele'}) %>
