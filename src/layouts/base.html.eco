@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title></title>
+	<script type="text/javascript" src="js/modernizr.js"></script>
 </head>
 <body>
 <%- @content %>
