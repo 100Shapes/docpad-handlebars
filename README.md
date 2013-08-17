@@ -4,18 +4,29 @@
 Create a Docpad app which rendered its views using Handlebar templates so that the same templates could be shared by a frontend JS app.
 
 ## Getting setup
-- Clone the repo `git clone https://github.com/100Shapes/docpad-handlebars.git`
-- Install the dependencies `cd docpad-handlebars && npm install`
-- Run the app `docpad run`
+1. Clone the repo `git clone https://github.com/100Shapes/docpad-handlebars.git`
+1. Install the dependencies `cd docpad-handlebars && npm install`
+1. Run the app `docpad run`
 
 ## Running the app
-- [Launch the app](http://localhost:9778/home.html)
-- Note the line of text
-- Turn JavaScript off in the browser and refresh
-- Docpad renders the same template
+1. [Launch the app](http://localhost:9778/home.html)
+1. Note the line of text
+1. Turn JavaScript off in the browser and refresh
+1. Docpad renders the same template
+
 
 ## Special Sauce
-Due to the [Docpad Handlebars plugin](https://github.com/docpad/docpad-plugin-handlebars), we're actually precompiling the Handlebars templates for the browser.
+Due to the [Docpad-plugin-Handlebars](https://github.com/docpad/docpad-plugin-handlebars), we're actually precompiling the Handlebars templates for the browser.
+
+## How does it work?
+### The Docpad side
+1. The `Home` document is a normal Docpad Document, but it calls a [template function](https://github.com/100Shapes/docpad-handlebars/blob/master/src/documents/home.html.eco#L5) to generate its view rather than doing it itself
+1. The templates [referred to by name](https://github.com/100Shapes/docpad-handlebars/blob/master/docpad.coffee#L10), with a simple data object just like any other rendering any other Handlebars template
+
+### The JS side
+1. Here we take advantage of the Docpad Handlebars plugin and [point requirejs at the precompiled Handlebars templates](https://github.com/100Shapes/docpad-handlebars/blob/master/src/documents/js/main.js#L4)
+1. Write the [view](https://github.com/100Shapes/docpad-handlebars/blob/master/src/documents/js/modules/home.js) to render the template 
+1. Finally, call that view from [within the page](https://github.com/100Shapes/docpad-handlebars/blob/master/src/layouts/base.html.eco#L16) (here, we're cheating slightly by using the `layout`)
 
 
 ## License
