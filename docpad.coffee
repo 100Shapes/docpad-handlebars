@@ -8,7 +8,7 @@ docpadConfig = {
     
     templateData:
         render: (templateName, data) ->
-            template = require "./src/documents/templates/#{templateName}.hbs"
+            template = require "./src/documents/js/templates/#{templateName}.hbs"
             template data
 
     plugins:

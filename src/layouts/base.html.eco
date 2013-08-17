@@ -1,15 +1,22 @@
 <html>
 <head>
 	<title></title>
-	<script type="text/javascript" src="js/modernizr.js"></script>
+	<script type="text/javascript" src="js/libs/modernizr.js"></script>
 </head>
 <body>
-<%- @content %>
-<script data-main="js/main" src="js/require.js"></script>
 
+	<div class="main">
+	<%- @content %>
+	</div>
+
+<script data-main="js/main" src="js/libs/require.js"></script>
 <script type="text/javascript">
 	if (Modernizr.history) {
 		window.console.log("History API supported");
+		requirejs(['modules/home'], function(Home) {
+			window.console.log("loaded Home module");
+			Home.render();
+		});
 	}
 </script>
 </body>
